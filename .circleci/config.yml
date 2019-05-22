@@ -9,6 +9,8 @@ jobs:
       - restore_cache:
           keys:
             - ivy
+      - run: git submodule sync
+      - run: git submodule update --init
       - run: sbt ";set Global / patchVersion := Some(\"$CIRCLE_BUILD_NUM\");publish"
       - save_cache:
           key: ivy

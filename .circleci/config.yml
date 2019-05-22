@@ -1,7 +1,8 @@
 version: 2
 jobs:
   build:
-    machine: true
+    docker:
+      - image: hseeberger/scala-sbt:11.0.2_2.12.8_1.2.8
     working_directory: ~/google-common-protos-scala
     steps:
       - checkout

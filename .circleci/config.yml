@@ -11,6 +11,7 @@ jobs:
             - ivy
       - run: git submodule sync
       - run: git submodule update --init
+      - run: apt-get update && apt-get install libatomic1
       - run: sbt ";set Global / patchVersion := Some(\"$CIRCLE_BUILD_NUM\");publish"
       - save_cache:
           key: ivy
